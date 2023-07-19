@@ -52,7 +52,8 @@ const Form = (props) => {
                     label="Imagem"
                     placeholder="Digite o endereço da imagem"
                     value={image}
-                    onChange={value => setImage(value)}/>
+                    onChange={value => setImage(value)}
+                />
                 <Dropdown
                     required={true}
                     label="Time"
