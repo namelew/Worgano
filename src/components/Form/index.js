@@ -2,6 +2,7 @@ import "./Form.css"
 import TextField from '../TextField';
 import Dropdown from "../Dropdown";
 import Button from "../Button";
+import { useState } from "react";
 
 const Form = () => {
     const teams = [
@@ -14,19 +15,46 @@ const Form = () => {
         'Inovação e Gestão'
     ]
 
+    const [name, setName] = useState('')
+    const [position, setPosition] = useState('')
+    const [image, setImage] = useState('')
+    const [team, setTeam] = useState(teams[0])
+
     const onSave = (event) => {
         event.preventDefault()
-        console.log("Form foi submetido")
+        console.log("Form foi submetido => ", name,position,image,team)
     }
 
     return (
         <section className="form">
             <form onSubmit={onSave}>
                 <h2>Preencha os dados para criar o card do colaborador</h2>
-                <TextField required={true} label="Nome" placeholder="Digite seu nome"/>
-                <TextField required={true} label="Cargo" placeholder="Digite seu cargo"/>
-                <TextField label="Imagem" placeholder="Digite o endereço da imagem"/>
-                <Dropdown required={true} label="Time" itens={teams}/>
+                <TextField
+                    label="Nome"
+                    placeholder="Digite seu nome"
+                    value={name}
+                    onChange={value => setName(value)}
+                    required={true}
+                />
+                <TextField
+                    label="Cargo"
+                    placeholder="Digite seu cargo"
+                    value={position}
+                    onChange={value => setPosition(value)}
+                    required={true}
+                />
+                <TextField
+                    label="Imagem"
+                    placeholder="Digite o endereço da imagem"
+                    value={image}
+                    onChange={value => setImage(value)}/>
+                <Dropdown
+                    required={true}
+                    label="Time"
+                    itens={teams}
+                    value={team}
+                    onChange={value => setTeam(value)}
+                />
                 <Button>
                     Criar Card
                 </Button>
