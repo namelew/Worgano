@@ -48,7 +48,14 @@ function App() {
     <div className="App">
       <Banner/>
       <Form teams={teams.map(team => team.name)} onRegistry={collaborator => setCollaborators([...collaborators, collaborator])}/>
-      {teams.map(team => <Team key={team.name} name={team.name} color={team.primaryColor} backgroundColor={team.secundaryColor}/>)}
+      {teams.map(team => <Team 
+                            key={team.name}
+                            name={team.name}
+                            color={team.primaryColor}
+                            backgroundColor={team.secundaryColor}
+                            collaborators={collaborators.filter(collaborator => collaborator.team == team.name)}
+                            />
+      )}
     </div>
   );
 }
