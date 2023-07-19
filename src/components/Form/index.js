@@ -4,7 +4,7 @@ import Dropdown from "../Dropdown";
 import Button from "../Button";
 import { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
     const teams = [
         'Programação',
         'Front-End',
@@ -22,7 +22,12 @@ const Form = () => {
 
     const onSave = (event) => {
         event.preventDefault()
-        console.log("Form foi submetido => ", name,position,image,team)
+        props.onRegistry({
+            name,
+            position,
+            image,
+            team
+        })
     }
 
     return (
