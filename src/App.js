@@ -47,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <Banner/>
-      <Form onRegistry={collaborator => setCollaborators([...collaborators, collaborator])}/>
+      <Form teams={teams.map(team => team.name)} onRegistry={collaborator => setCollaborators([...collaborators, collaborator])}/>
       {teams.map(team => <Team key={team.name} name={team.name} color={team.primaryColor} backgroundColor={team.secundaryColor}/>)}
     </div>
   );

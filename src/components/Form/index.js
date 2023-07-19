@@ -5,20 +5,10 @@ import Button from "../Button";
 import { useState } from "react";
 
 const Form = (props) => {
-    const teams = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'Ux e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
-
     const [name, setName] = useState('')
     const [position, setPosition] = useState('')
     const [image, setImage] = useState('')
-    const [team, setTeam] = useState(teams[0])
+    const [team, setTeam] = useState(props.teams.first)
 
     const onSave = (event) => {
         event.preventDefault()
@@ -57,7 +47,7 @@ const Form = (props) => {
                 <Dropdown
                     required={true}
                     label="Time"
-                    itens={teams}
+                    itens={props.teams}
                     value={team}
                     onChange={value => setTeam(value)}
                 />
