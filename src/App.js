@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/Banner';
 import Form from './components/Form';
 import Team from './components/Team';
+import Footer from './components/Footer';
 
 function App() {
   const teams = [
@@ -53,9 +54,10 @@ function App() {
                             name={team.name}
                             color={team.primaryColor}
                             backgroundColor={team.secundaryColor}
-                            collaborators={collaborators.filter(collaborator => collaborator.team == team.name)}
+                            collaborators={collaborators.filter(collaborator => collaborator.team === team.name)}
                             />
       )}
+      <Footer/>
     </div>
   );
 }
